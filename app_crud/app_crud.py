@@ -24,6 +24,10 @@ cursor.execute("""CREATE TABLE IF NOT EXISTS dados_gripe(
                         municipio VARCHAR(255),
                         estado VARCHAR(255),
                         tomouVacinaCovid BOOLEAN);""")
+conn.commit()
+cursor.close()
+conn.close()
+
 
 app = Flask(__name__)
 
@@ -57,8 +61,8 @@ def create_paciente():
     cursor = conn.cursor()
     
     cursor.execute("""INSERT INTO dados_gripe (timestamp, sexo, idade, sintomas, dataInicioSintomas, municipio, estado, tomouVacinaCovid)
-                      VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s);""",
-                   (id, timestamp, sexo, idade, sintomas, dataInicioSintomas, municipio, estado, tomouVacinaCovid))
+                      VALUES (%s, %s, %s, %s, %s, %s, %s, %s);""",
+                   (timestamp, sexo, idade, sintomas, dataInicioSintomas, municipio, estado, tomouVacinaCovid))
     
     conn.commit()
     
