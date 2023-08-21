@@ -98,6 +98,14 @@ def update_paciente(id):
     conn = psycopg2.connect(**db_params)
     cursor = conn.cursor()
     
+    # Verifica se existe um paciente com o id
+    cursor.execute("SELECT id FROM dados_gripe WHERE id = %s;", (id,))
+    existing_row = cursor.fetchone()
+    if not existing_row:
+        cursor.close()
+        conn.close()
+        return jsonify({"message": f"Não foi encontrado um paciente com o ID {id}."}), 404
+
     cursor.execute("""UPDATE dados_gripe SET timestamp = %s, sexo = %s, idade = %s, sintomas = %s,
                       dataInicioSintomas = %s, municipio = %s, estado = %s, tomouVacinaCovid = %s
                       WHERE id = %s;
@@ -117,6 +125,14 @@ def delete_paciente(id):
     conn = psycopg2.connect(**db_params)
     cursor = conn.cursor()
     
+    # Verifica se existe um paciente com o id
+    cursor.execute("SELECT id FROM dados_gripe WHERE id = %s;", (id,))
+    existing_row = cursor.fetchone()
+    if not existing_row:
+        cursor.close()
+        conn.close()
+        return jsonify({"message": f"Não foi encontrado um paciente com o ID {id}."}), 404
+
     cursor.execute("DELETE FROM dados_gripe WHERE id = %s;", (id,))
     
     conn.commit()
