@@ -1,12 +1,13 @@
 import psycopg2
 from flask import Flask, request, jsonify
+import os
 
 db_params = {
-    "dbname": "postgres",
-    "user": "postgres",
-    "password": "12345",
-    "host": "localhost",
-    "port": "5432"
+    "dbname": os.environ.get("DB_NAME"),
+    "user": os.environ.get("DB_USER"),
+    "password": os.environ.get("DB_PASSWORD"),
+    "host": os.environ.get("DB_HOST"),
+    "port": os.environ.get("DB_PORT")
 }
 
 conn = psycopg2.connect(**db_params)
