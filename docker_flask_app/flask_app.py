@@ -29,10 +29,11 @@ cursor.execute("""
                 tomouVacinaCovid BOOLEAN
         );
         """)
+
 conn.commit()
+
 cursor.close()
 conn.close()
-
 
 app = Flask(__name__)
 
