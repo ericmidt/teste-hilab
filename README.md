@@ -19,7 +19,8 @@ O primeiro programa consome uma API de notificações de síndrome gripal no Par
 
 ## Notificações de Gripe no Paraná (Desafio de Modelagem e Processamento de Dados):
 
-O programa "notificacoes_gripe.py" na pasta "notificacoes_sindrome_gripal" consome a API de notificações de síndrome gripal do governo e insere os dados em um banco de dados PostgreSQL local. Após clonar o repositório localmente, siga estas etapas para executar o programa:
+O programa "notificacoes_gripe.py" na pasta "notificacoes_sindrome_gripal" consome a [API de notificações de síndrome gripal do governo brasileiro](https://dados.gov.br/dados/conjuntos-dados/notificaes-de-sndrome-gripal---api-elasticsearch) 
+e insere os dados em um banco de dados PostgreSQL local. Após clonar o repositório localmente, siga estas etapas para executar o programa:
 1. Clone o repositório localmente no diretório de sua escolha:
     ```bash
     git clone https://github.com/ericmidt/teste-hilab.git
