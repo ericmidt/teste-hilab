@@ -4,7 +4,6 @@ from datetime import datetime, timedelta
 import calendar
 
 class NotificacoesProcessor:
-
     def __init__(self, db_params):
         # Credenciais para acessar a API
         self.url = "https://elasticsearch-saps.saude.gov.br/desc-esus-notifica-estado-pr/_search"
@@ -15,31 +14,33 @@ class NotificacoesProcessor:
         self.session.auth = (self.username, self.password)
 
     # Busca e processa os dados
-    def fetch_and_processs_data(self,start_date, end_date):
+    def fetch_and_process_data(self, start_date, end_date):
         # Realiza a conexão ao banco de dados
-        conn = psycopg2.connect(**db_params)
+        conn = psycopg2.connect(**self.db_params)
         cursor = conn.cursor()
 
         # Cria uma tabela
-        cursor.execute("""CREATE TABLE IF NOT EXISTS Notificacoes_sindrome_gripal_parana(
-                                id VARCHAR(255),
-                                timestamp TIMESTAMP,
-                                sexo VARCHAR(255),
-                                idade INTEGER,
-                                cor VARCHAR(255),
-                                sintomas VARCHAR(255),
-                                dataInicioSintomas TIMESTAMP,
-                                municipio VARCHAR(255),
-                                estado VARCHAR(255),
-                                dataPrimeiraDose TIMESTAMP,
-                                dataSegundaDose TIMESTAMP,
-                                dataNotificacao TIMESTAMP,
-                                municipioNotificacao VARCHAR(255),
-                                estadoNotificacao VARCHAR(255),
-                                recebeuAntiviral VARCHAR(255),
-                                profissionalSaude VARCHAR(255),
-                                profissionalSeguranca VARCHAR(255)
-                        );""")
+        cursor.execute("""
+            CREATE TABLE IF NOT EXISTS Notificacoes_sindrome_gripal_parana(
+                id VARCHAR(255),
+                timestamp TIMESTAMP,
+                sexo VARCHAR(255),
+                idade INTEGER,
+                cor VARCHAR(255),
+                sintomas VARCHAR(255),
+                dataInicioSintomas TIMESTAMP,
+                municipio VARCHAR(255),
+                estado VARCHAR(255),
+                dataPrimeiraDose TIMESTAMP,
+                dataSegundaDose TIMESTAMP,
+                dataNotificacao TIMESTAMP,
+                municipioNotificacao VARCHAR(255),
+                estadoNotificacao VARCHAR(255),
+                recebeuAntiviral VARCHAR(255),
+                profissionalSaude VARCHAR(255),
+                profissionalSeguranca VARCHAR(255)
+            );
+        """)
 
         # Define a data de início para a busca dos dados e a data final. Não há registros antes de 01/11/2022
         start_date = datetime(2022, 11, 1)
@@ -106,7 +107,6 @@ class NotificacoesProcessor:
         print("Data insertion complete.")
 
 if __name__ == "__main__":
-
     # Credenciais para conexão com o banco de dados PostgreSQL
     db_params = {
         "dbname": "postgres",
@@ -121,4 +121,4 @@ if __name__ == "__main__":
     start_date = datetime(2022, 11, 1)
     end_date = datetime.now()
 
-    processor.fetch_and_processs_data(start_date, end_date)
+    processor.fetch_and_process_data(start_date, end_date)
