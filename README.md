@@ -9,7 +9,7 @@ de modelagem e processamento de dados.
 
 Este repositório contém dois programas em pastas diferentes, cada um com um propósito específico, como parte de um teste no processo de seleção da Hilab. 
 
-O primeiro programa consome uma API de notificações de síndrome gripal do governo e insere os dados em um banco de dados local. O segundo programa cria uma API CRUD utilizando a framework Flask. Abaixo estão as instruções para executar ambos os programas.
+O primeiro programa consome uma API de notificações de síndrome gripal no Paraná e insere os dados em um banco de dados local. O segundo programa cria uma API CRUD utilizando a framework Flask, além de ser possível criar um container Docker com esta aplicação. Abaixo estão as instruções para executar ambos os programas.
 
 ## Requisitos
 
