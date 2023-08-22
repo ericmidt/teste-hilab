@@ -1,6 +1,9 @@
 # Projeto de Teste para Hilab
 
-Brief description of your project.
+Teste para a posição de Desenvolvedor Python na Hilab - Ago 2023.
+
+Há dois projetos, uma aplicação CRUD usando Flask + Docker, e um script python
+de modelagem e processamento de dados.
 
 ## Descrição
 
