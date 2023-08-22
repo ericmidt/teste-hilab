@@ -2,6 +2,7 @@ import requests
 import psycopg2
 from datetime import datetime, timedelta
 import calendar
+import os
 
 class NotificacoesProcessor:
     def __init__(self, db_params):
@@ -92,7 +93,7 @@ class NotificacoesProcessor:
                     cursor.execute(insert_query, selected_data)
 
                 conn.commit()
-                print(f"Processed {len(hits)} hits for {current_date}")
+                print(f"Processed {len(hits)} hits for {current_date.strftime('%Y-%m')}")
 
             else:
                 print(f"Error in request for {current_date}: {response.status_code}")
@@ -109,11 +110,11 @@ class NotificacoesProcessor:
 if __name__ == "__main__":
     # Credenciais para conexão com o banco de dados PostgreSQL
     db_params = {
-        "dbname": "postgres",
-        "user": "postgres",
-        "password": "12345",
-        "host": "localhost",
-        "port": "5432"
+        "dbname": os.environ.get("DB_NAME"),
+        "user": os.environ.get("DB_USER"),
+        "password": os.environ.get("DB_PASSWORD"),
+        "host": os.environ.get("DB_HOST"),
+        "port": os.environ.get("DB_PORT")
     }
 
     processor = NotificacoesProcessor(db_params)

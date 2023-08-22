@@ -2,7 +2,7 @@ import psycopg2
 from flask import Flask, request, jsonify
 import os
 
-# Define os parametros para conectar ao banco de dados local
+# Define os parâmetros para conectar ao banco de dados local
 db_params = {
     "dbname": os.environ.get("DB_NAME"),
     "user": os.environ.get("DB_USER"),
