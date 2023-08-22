@@ -114,7 +114,7 @@ com as suas próprias para acessar seu banco local PostgreSQL):
     ```
     Geralmente a porta padrão do PostgreSQL é "5432".
 
-    Você deve a seguinte mensagem no seu terminal:
+    Você deve ver a seguinte mensagem no seu terminal:
     ```bash
     * Serving Flask app 'flask_app'
     * Debug mode: off
