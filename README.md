@@ -145,9 +145,9 @@ Cria uma nova entrada de paciente.
     ```json
     {
     "timestamp": "AAAA-MM-DD HH:MM:SS",
-    "sexo": "Masculino/Feminino",
-    "idade": 30,
-    "sintomas": "Febre, Tosse",
+    "sexo": "Gênero",
+    "idade": 99,
+    "sintomas": "Sintomas",
     "dataInicioSintomas": "AAAA-MM-DD HH:MM:SS",
     "municipio": "Cidade",
     "estado": "Estado",
@@ -168,9 +168,9 @@ Atualiza uma entrada de paciente existente.
     ```json
     {
     "timestamp": "AAAA-MM-DD HH:MM:SS",
-    "sexo": "Masculino/Feminino",
-    "idade": 30,
-    "sintomas": "Febre, Tosse",
+    "sexo": "Gênero",
+    "idade": 0,
+    "sintomas": "Sintomas",
     "dataInicioSintomas": "AAAA-MM-DD HH:MM:SS",
     "municipio": "Cidade",
     "estado": "Estado",
