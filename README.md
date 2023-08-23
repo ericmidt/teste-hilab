@@ -125,7 +125,7 @@ com as suas próprias para acessar seu banco local PostgreSQL):
     * Running on http://172.17.0.2:5000
     Press CTRL+C to quit
     ```
-    5. A API estará acessível em http://localhost:5000.
+5. A API estará acessível em http://localhost:5000.
 
 ### Endpoints
 #### Listar Pacientes
