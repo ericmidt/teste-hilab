@@ -82,6 +82,7 @@ Abra o programa pgAdmin4, e clique com o botão direito na seção "Tables" e cl
 Você deve ver uma nova tabela chamada "notificacoes_sindrome_gripal_parana". Clique com botão direito na seção
 "Tables", clique em "Query Tool". Em seguida você pode realizar uma query para
 verificar os dados que foram salvos, como por exemplo:
+
 ```sql
 SELECT * FROM notificacoes_sindrome_gripal_parana
 ```
@@ -124,8 +125,108 @@ com as suas próprias para acessar seu banco local PostgreSQL):
     * Running on http://172.17.0.2:5000
     Press CTRL+C to quit
     ```
+    5. A API estará acessível em http://localhost:5000.
+
+### Endpoints
+#### Listar Pacientes
+Retorna uma lista de todos os pacientes.
+
+- URL: /pacientes
+- Método: GET
+- Resposta:
+    - 200 OK - Lista de pacientes.
+
+#### Criar Paciente
+Cria uma nova entrada de paciente.
+
+- URL: /paciente
+- Método: POST
+- Corpo da Requisição:
+    ```json
+    {
+    "timestamp": "AAAA-MM-DD HH:MM:SS",
+    "sexo": "Masculino/Feminino",
+    "idade": 30,
+    "sintomas": "Febre, Tosse",
+    "dataInicioSintomas": "AAAA-MM-DD HH:MM:SS",
+    "municipio": "Cidade",
+    "estado": "Estado",
+    "tomouVacinaCovid": true
+    }
+    ```
+- Resposta:
+    - 200 OK - Paciente criado com sucesso.
+
+#### Atualizar Paciente
+Atualiza uma entrada de paciente existente.
+
+- URL: /paciente/{id}
+- Método: PUT
+- Parâmetros da URL:
+    - id - ID do Paciente
+- Corpo da Requisição:
+    ```json
+    {
+    "timestamp": "AAAA-MM-DD HH:MM:SS",
+    "sexo": "Masculino/Feminino",
+    "idade": 30,
+    "sintomas": "Febre, Tosse",
+    "dataInicioSintomas": "AAAA-MM-DD HH:MM:SS",
+    "municipio": "Cidade",
+    "estado": "Estado",
+    "tomouVacinaCovid": true
+    }
+    ```
+- Resposta:
+    - 200 OK - Paciente atualizado com sucesso.
+    - 404 Not Found - Paciente com o ID especificado não encontrado.
+
+#### Remover Paciente
+Remove uma entrada de paciente existente.
+- URL: /paciente/{id}
+- Método: DELETE
+- Parâmetros da URL:
+    - id - ID do Paciente
+- Resposta:
+    - 200 OK - Paciente removido com sucesso.
+    - 404 Not Found - Paciente com o ID especificado não encontrado.
 
 
+
+### Testes (requisições de exemplo)
+#### Criar Paciente
+```bash
+curl -X POST -H "Content-Type: application/json" -d "{\"timestamp\": \"2023-08-18T12:00:00Z\", \"sexo\": \"Feminino\", \"idade\": 25, \"sintomas\": \"Dor de cabeça, Cansaço\", \"dataInicioSintomas\": \"2023-08-18T00:00:00Z\", \"municipio\": \"Curitiba\", \"estado\": \"PR\", \"tomouVacinaCovid\": true}" http://localhost:5000/paciente
+
+curl -X POST -H "Content-Type: application/json" -d "{\"timestamp\": \"2023-08-19T12:00:00Z\", \"sexo\": \"Masculino\", \"idade\": 74, \"sintomas\": \"Tosse, Coriza\", \"dataInicioSintomas\": \"2023-08-18T00:00:00Z\", \"municipio\": \"Curitiba\", \"estado\": \"PR\", \"tomouVacinaCovid\": false}" http://localhost:5000/paciente
+
+curl -X POST -H "Content-Type: application/json" -d "{\"timestamp\": \"2023-08-20T12:00:00Z\", \"sexo\": \"Feminino\", \"idade\": 36, \"sintomas\": \"Dor de cabeça, Febre\", \"dataInicioSintomas\": \"2023-08-18T00:00:00Z\", \"municipio\": \"Curitiba\", \"estado\": \"PR\", \"tomouVacinaCovid\": true}" http://localhost:5000/paciente
+```
+Abra o programa pgAdmin4, e clique com o botão direito na seção "Tables" e clique em "Refresh".
+Você deve ver uma nova tabela chamada "dados_gripe". Clique com botão direito na seção
+"Tables", clique em "Query Tool". Em seguida você pode realizar uma query para
+verificar os dados que foram salvos, como por exemplo:
+
+```sql
+SELECT * FROM notificacoes_sindrome_gripal_parana
+```
+#### Listar Pacientes
+Para retornar os pacientes inseridos na tabela, execute o comando:
+```bash
+curl http://localhost:5000/pacientes
+```
+
+#### Atualizar Paciente
+Para atualizar o paciente com id 1, execute o comando:
+```bash
+curl -X PUT -H "Content-Type: application/json" -d "{\"timestamp\": \"2023-08-21T12:00:00Z\", \"sexo\": \"Masculino\", \"idade\": 30, \"sintomas\": \"Febre, Tosse\", \"dataInicioSintomas\": \"2023-08-19T00:00:00Z\", \"municipio\": \"São Paulo\", \"estado\": \"SP\", \"tomouVacinaCovid\": true}" http://localhost:5000/paciente/1
+```
+
+#### Excluir Paciente
+Para excluir o paciente com id 1, execute o comando:
+```bash
+curl -X DELETE http://localhost:5000/paciente/1
+```
 
 ## Contato:
 
