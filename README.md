@@ -91,7 +91,7 @@ SELECT * FROM notificacoes_sindrome_gripal_parana
 
 A pasta "flask_crud_api" contém o código de uma API CRUD utilizando o framework Flask que salva e manipula dados em um banco de dados PostgreSQL local. O programa "flask_app.py" implementa operações de criação, leitura, atualização e exclusão de pacientes com sintomas de gripe. 
 
-O código está disponível para análise, mas para executar o container recomendo puxar a imagem do container do [repositório no Docker Hub](https://hub.docker.com/r/ericmidt/flask_crud_api).
+O código está disponível para análise, mas para executar o container recomendo puxar a imagem do [repositório no Docker Hub](https://hub.docker.com/r/ericmidt/flask_crud_api).
 
 Para executar o container, siga estas etapas:
 1. Certifique-se de ter o Docker instalado.
