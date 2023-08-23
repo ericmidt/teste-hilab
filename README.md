@@ -2,7 +2,7 @@
 
 Teste para a posição de Desenvolvedor Python na Hilab - Agosto 2023.
 
-Há dois projetos neste repositório, uma aplicação CRUD usando Flask + Docker, e um script python
+Há dois projetos neste repositório, uma API CRUD usando Flask + Docker, e um script python
 de modelagem e processamento de dados.
 
 ## Descrição
