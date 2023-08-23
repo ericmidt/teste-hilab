@@ -111,7 +111,7 @@ com as suas próprias para acessar seu banco local PostgreSQL):
     ```
     Exemplo:
     ```bash
-    docker run -e DB_NAME="postgres" -e DB_USER="postgres" -e DB_PASSWORD="senha" -e DB_HOST="host.docker.internal" -e DB_PORT="5432" -p 5000:5000 ericmidt/flask_crud_api:latest
+    docker run -e DB_NAME="postgres" -e DB_USER="postgres" -e DB_PASSWORD="12345" -e DB_HOST="host.docker.internal" -e DB_PORT="5432" -p 5000:5000 ericmidt/flask_crud_api:latest
     ```
     Geralmente a porta padrão do PostgreSQL é "5432".
 
