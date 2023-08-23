@@ -195,6 +195,8 @@ Remove uma entrada de paciente existente.
 
 ### Testes (requisições de exemplo)
 #### Criar Paciente
+Para criar três pacientes, execute os comandos abaixo no seu terminal:
+
 ```bash
 curl -X POST -H "Content-Type: application/json" -d "{\"timestamp\": \"2023-08-18T12:00:00Z\", \"sexo\": \"Feminino\", \"idade\": 25, \"sintomas\": \"Dor de cabeça, Cansaço\", \"dataInicioSintomas\": \"2023-08-18T00:00:00Z\", \"municipio\": \"Curitiba\", \"estado\": \"PR\", \"tomouVacinaCovid\": true}" http://localhost:5000/paciente
 
