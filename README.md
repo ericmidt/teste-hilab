@@ -14,7 +14,7 @@ O primeiro programa consome uma API de notificações de síndrome gripal no Par
 ## Requisitos
 
 - Python 3.11.4 ou superior
-- PostgreSQL instalado e configurado
+- PostgreSQL instalado e configurado (e pgAdmin4 para testar o banco de dados local)
 - Docker
 
 ## Notificações de Gripe no Paraná (Desafio de Modelagem e Processamento de Dados):
