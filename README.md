@@ -228,5 +228,5 @@ curl -X DELETE http://localhost:5000/paciente/1
 
 ## Contato:
 
-- Email: erickarlschmidt@gmail.com
-- GitHub: ericmidt.github.com
+- [LinkedIn](https://www.linkedin.com/in/ericmidt/)
+- [GitHub](https://github.com/ericmidt)https://github.com/ericmidt
