@@ -1,7 +1,3 @@
-# Projeto de Teste para Hilab
-
-Teste para a posição de Desenvolvedor Python na Hilab - Agosto 2023.
-
 Há dois projetos neste repositório, um script python
 de modelagem e processamento de dados e uma API CRUD usando Flask + Docker.
 
