@@ -13,7 +13,7 @@ O primeiro programa consome uma API de notificações de síndrome gripal no Par
 - PostgreSQL instalado e configurado (e pgAdmin4 para testar o banco de dados local)
 - Docker
 
-## Notificações de Gripe no Paraná (Desafio de Modelagem e Processamento de Dados):
+## Notificações de Gripe no Paraná (Modelagem e Processamento de Dados):
 
 O programa "notificacoes_gripe.py" na pasta "notificacoes_sindrome_gripal" consome a [API de notificações de síndrome gripal do governo brasileiro](https://dados.gov.br/dados/conjuntos-dados/notificaes-de-sndrome-gripal---api-elasticsearch) 
 e insere os dados em um banco de dados PostgreSQL local. 
@@ -83,7 +83,7 @@ verificar os dados que foram salvos, como por exemplo:
 SELECT * FROM notificacoes_sindrome_gripal_parana
 ```
 
-## Flask CRUD API (Desafio Aplicação CRUD + Docker):
+## Flask CRUD API (Aplicação CRUD + Docker):
 
 A pasta "flask_crud_api" contém o código de uma API CRUD utilizando o framework Flask que salva e manipula dados em um banco de dados PostgreSQL local. O programa "flask_app.py" implementa operações de criação, leitura, atualização e exclusão de pacientes com sintomas de gripe. 
 
